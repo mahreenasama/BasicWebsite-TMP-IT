@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Careers</title>
+
+    <link href="Bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="Bootstrap/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="style/custom.css" />
+    <script defer src="style/custom.js" type="text"></script>
+    <script src="Jquery/jquery-3.6.0.min.js"></script>
+
+</head>
+
+<body>
+    <!-- header -->
+    <div id="nav">
+        <img src="style/images/logo.png" id="logo" alt="logo" />
+        <ul>
+            <li><a href="index.html">Home</a></li>
+                <li><a href="aboutUs.html">About Us</a></li>
+                <li><a href="#">Online Courses</a></li>
+                <li><a href="careers.html">Career</a></li>
+                <li><a href="contactUs.html">Contact Us</a></li>
+        </ul>
+    </div>
+
+    <!-- main -->
+    <div class="text-white bg-dark fs-2 text-center p-2">Careers</div>
+
+    <section id="careers-main">
+        <h1 class="text-danger"><u>Graphic Designer</u></h1>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iusto placeat veniam ipsum officia quos dignissimos, fugiat obcaecati nobis ullam itaque sapiente eum omnis saepe voluptates voluptatibus, illum animi perferendis? Aliquam!</p>
+        <!-- <button onclick="heko()">click me</button> -->
+        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+            SIGN UP
+        </button>
+        <!-- table to show when modal submitted -->
+        <table class="table table-striped mx-auto" style="display:none; width: 800px;" id="career-table">
+
+            <thead>
+            </thead>
+            <tbody>
+                <tr>
+                    <td colspan="2" class="text-center">
+                        <img class="rounded-circle" alt="profile-picture" id="dp" style="width: 100px; height:
+                        100px; border:1px solid black;">
+                    </td>
+                </tr>
+                <tr>
+                    <th id="th-fname" scope="row"></th>
+                    <th id="th-lname" class="text-end"></th>
+                </tr>
+                <tr>
+                    <th scope="row">Email</th>
+                    <td id="td-email" class="text-end"></td>
+                </tr>
+                <tr>
+                    <th scope="row">Password</th>
+                    <td id="td-pass" class="text-end"></td>
+                </tr>
+                <tr>
+                    <th scope="row">Country</th>
+                    <td id="td-country" class="text-end"></td>
+                </tr>
+                <tr>
+                    <th scope="row">Phone</th>
+                    <td id="td-phone" class="text-end"></td>
+                </tr>
+                <tr>
+                    <th scope="row">Gender</th>
+                    <td id="td-gender" class="text-end"></td>
+                </tr>
+                <tr>
+                    <th scope="row">Date of Birth</th>
+                    <td id="td-dob" class="text-end"></td>
+                </tr>
+                <tr>
+                    <th scope="row">Subjects</th>
+                    <td id="td-subjects" class="text-end"></td>
+                </tr>
+                <tr>
+                    <td id="td-message" class="text-start" colspan="2"></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- <button type="button" onclick="writeFileFun()">Show Profile Picture</button> -->
+    </section>
+
+    <!-- Modal -->
+    <form id="myForm">
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Sign Up</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-12 mb-3">
+                            <div class="form-group">
+                                <label for="picture" class="form-label">Upload Picture <span class="text-danger">*</span></label>
+                                <input type="file" class="form-control" id="picture" required accept="image/png, image/jpg, image/jpeg">
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="fname" class="form-label">First Name <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="fname" placeholder="First name here"
+                                    required maxlength="100" onkeypress="return OnlyAlphabets(event)">
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="lname" class="form-label">Last Name</label>
+                                <input type="text" class="form-control" id="lname" placeholder="Last name here" 
+                                 maxlength="100" onkeypress="return OnlyAlphabets(event)">
+                            </div>
+                        </div>
+                        <div class="col-12 mb-3 text-danger" id="name-error-msg"></div>
+
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
+                                <input type="email" class="form-control" id="email" placeholder="Email" required>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="c-email" class="form-label">Confirm Email <span class="text-danger">*</span></label>
+                                <input type="email" class="form-control" id="c-email" placeholder=" Confirm Email"
+                                    required>
+                            </div>
+                        </div>
+                        <div class="col-12 mb-3 text-danger" id="email-error-msg"></div>
+
+
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="pass" class="form-label">Password <span class="text-danger">*</span></label>
+                                <input type="password" class="form-control" id="pass" placeholder="Password" required maxlength="10">
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="c-pass" class="form-label">Confirm Password <span class="text-danger">*</span></label>
+                                <input type="password" class="form-control" id="c-pass" placeholder="Confirm Password"
+                                    required maxlength="10">
+                            </div>
+                        </div>
+                        <div class="col-12 mb-3 text-danger" id="pass-error-msg"></div>
+
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="country" class="form-label">Country <span class="text-danger">*</span></label>
+                                <select class="form-select" aria-label="Default select example" required id="country">
+                                    <option selected value="0" name="Pakistan">Pakistan</option>
+                                    <option value="1" name="India">India</option>
+                                    <option value="2" name="Afghanistan">Afghanistan</option>
+                                    <option value="3" name="Bangladesh">Bangladesh</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="form-group">
+                                <label for="code" class="form-label">Code <span class="text-danger">*</span></label>
+                                <select class="form-select" aria-label="Default select example" disabled id="code">
+                                    <option value="0" selected>+92</option>
+                                    <option value="1">+91</option>
+                                    <option value="2">+93</option>
+                                    <option value="3">+880</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="form-group">
+                                <label for="phone" class="form-label">Phone <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="phone" required onkeypress="return OnlyNumbers(event)">
+                            </div>
+                        </div>
+                        <div class="col-12 mb-3 text-danger" id="phone-error-msg"></div>
+
+                        <div class="col-6 mb-3">
+                            <div class="form-group">
+                                <label style="display: block;" class="form-label">Gender <span class="text-danger">*</span></label>
+                                <div class="form-check-inline">
+                                    <input type="radio" id="male" name="gender" class="form-check-input" value="Male" required>
+                                    <label for="male" class="form-check-label"> Male </label>
+                                </div>
+                                <div class="form-check-inline">
+                                    <input type="radio" id="female" name="gender" class="form-check-input" value="Female" required>
+                                    <label for="female" class="form-check-label"> Female </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-6 mb-3">
+                            <div class="form-group">
+                                <label for="date" class="form-label">Date <span class="text-danger">*</span></label>
+                                <input type="date" class="form-control" id="date" required>
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label style="display: block;" class="form-label">Subjects <span class="text-danger">*</span></label>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="Science" name="subject">
+                                    <label class="form-check-label" for="Science">Science</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="Arts" name="subject">
+                                    <label class="form-check-label" for="Arts">Arts</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="Business" name="subject">
+                                    <label class="form-check-label" for="Business">Business</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="Sports" name="subject">
+                                    <label class="form-check-label" for="Sports">Sports</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 mb-3 text-danger" id="subject-error-msg"></div>
+
+                        <div class="col-12 mb-3">
+                            <div class="form-group">
+                                <label for="message" class="form-label mt-3">Message <span class="text-danger">*</span></label>
+                                <textarea id="message" class="form-control" rows="5" placeholder="Enter message here" maxlength="500" required></textarea>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <!-- <button type="submit" class="btn btn-primary" onclick="SubmitForm()">Save</button> -->
+                    <input id="submit" type="submit" class="btn btn-primary" >
+                </div>
+            </div>
+        </div>
+    </div>
+    </form>
+    <!-- footer -->
+    <div id="footer">
+        <img src="style/images/footer-logo.png" alt="logo" style="height: 80px; width: 100px;">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="aboutUs.html">About Us</a></li>
+            <li><a href="#">Online Courses</a></li>
+            <li><a href="careers.html">Career</a></li>
+            <li><a href="contactUs.html">Contact Us</a></li>
+        </ul>
+        <p>Copyright &copy; My Web</p>
+    </div>
+  
+
+
+
+
+
+    <script>
+        //-------------Careers page js----------------------- 
+
+var form = document.getElementById("myForm");
+function handleForm(event) { 
+    event.preventDefault();
+
+    let fv=SubmitForm();
+    if(fv==true){
+        console.log('true')
+        let att=document.createAttribute('data-bs-dismiss');
+        att.value='modal';
+        document.getElementById('submit').setAttributeNode(att);
+        DisplayData();
+        this.reset();           //reset form after submitting once
+        $("#staticBackdrop").modal("hide");                 //hide the modal
+    }
+    else{
+        event.preventDefault(); console.log('prevent')
+    }
+}
+form.addEventListener('submit', handleForm);
+//-----------------------------------------checking fname,lname--------------------------------
+document.getElementById("fname").addEventListener("blur", function(){
+    document.getElementById('name-error-msg').innerHTML="";
+});
+document.getElementById("lname").addEventListener("blur", function(){
+    document.getElementById('name-error-msg').innerHTML="";
+});
+document.getElementById("phone").addEventListener("blur", function(){
+    document.getElementById('phone-error-msg').innerHTML="";
+});
+
+
+//--------------------on change event of country------------------
+document.getElementById('country').addEventListener('change',function(){
+    //first clear prev. code
+    let codes=document.getElementById('code').options;
+    for(var i = 0; i < codes.length; i++){
+      codes[i].selected = false;
+    }
+    let cntry=this.value;
+    document.getElementById('code').options[cntry].selected=true;   //set new code
+})
+
+
+// let namesarr=document.getElementsByClassName('flname');
+// for(let i=0; i<namesarr.length; i++){
+//     namesarr[i].onblur=function(){
+//         alert('blur')
+//     document.getElementById('name-error-msg').innerHTML="Seem Good";
+//     }
+// }
+
+
+//-----------------------------------------checking fname,lname
+function OnlyAlphabets(e) {
+    var keyCode = (e.which) ? e.which : e.keyCode;
+    if((keyCode>=65 && keyCode<=90) || (keyCode>=97 && keyCode<=122)){
+        return true;
+    }
+    else{
+        document.getElementById('name-error-msg').innerHTML="Name should only contain alphabets";
+        return false;
+    }
+}
+//-----------------------------------------checking phone-number
+function OnlyNumbers(e) {
+    var keyCode = (e.which) ? e.which : e.keyCode;
+    if(keyCode>=48 && keyCode<=57){
+        return true;
+    }
+    else{
+        document.getElementById('phone-error-msg').style.color="red";
+        document.getElementById('phone-error-msg').innerHTML="PhoneNumber can only contain numbers";
+        return false;
+    }
+}
+
+//-----------------------------------------submit form final-----------------------------
+function SubmitForm() {
+    //first check validation of all things
+    // alert('SubmitForm')
+    let formValid=true;
+
+    //--- email
+    let email=document.getElementById('email').value;
+    let confirmEmail=document.getElementById('c-email').value;
+    if(email!=confirmEmail){
+        document.getElementById('email-error-msg').innerHTML="Email and ConfirmEmail must match";
+        formValid=false;
+    }
+    else{
+        document.getElementById('email-error-msg').innerHTML="";
+    }
+    //--- password
+    //first check passowrd pattern
+    var reg1=/[0-9]/, reg2=/[A-Z]/;
+    var reg3=/[!@#$%^&*]/;         //at least one special character
+
+    let pass=document.getElementById('pass').value;
+
+    if(reg1.test(pass) && reg2.test(pass) && reg3.test(pass)){
+        //if password passes all 3 tests
+        document.getElementById('pass-error-msg').innerHTML="";
+
+        let confirmPass=document.getElementById('c-pass').value;
+        if(pass!=confirmPass){
+            document.getElementById('pass-error-msg').innerHTML="Passsword and ConfirmPassword must match";
+            formValid=false;
+        }
+        else{
+            document.getElementById('pass-error-msg').innerHTML="";
+        }
+    }
+    else{
+        document.getElementById('pass-error-msg').innerHTML="Password must contain at least 'one Capital letter, one digit, and one special character(!@#$%^&*)' "
+        formValid=false;
+    }
+
+    
+    //--- subjects
+    let subjects=document.getElementsByName('subject');
+    let c=0;
+    for(let i=0; i<subjects.length; i++){
+        if(subjects[i].checked){
+            c=1;
+            document.getElementById('subject-error-msg').innerHTML="";
+        }
+    }
+    if(c==0){ 
+        document.getElementById('subject-error-msg').innerHTML="Please select at least one subject";
+        formValid=false; 
+    }
+    return formValid;
+    
+
+}
+
+
+function DisplayData() {
+    //show form data on page, when form is submitted.
+
+    // alert('data');
+
+
+    //display profile picture
+    var file = document.getElementById('picture').files[0];
+    // console.log(file);
+    var reader  = new FileReader();
+    // it's onload event
+    reader.onload = function(e)  {
+        var src = document.createAttribute("src");
+        // the result image data
+        src.value = e.target.result;
+        // console.log(e);
+        // console.log(e.target);
+        // console.log(e.target.result);
+
+        //set attribute
+        var image=document.getElementById('dp');
+        image.setAttributeNode(src);
+     }
+     // you have to declare the file loading
+     reader.readAsDataURL(file);
+
+
+    //-------------------------rest data
+    document.getElementById('career-table').style.display="block";
+
+    var fname=document.getElementById('fname').value;
+    document.getElementById('th-fname').innerHTML=fname;
+
+    var lname=document.getElementById('lname').value;
+    document.getElementById('th-lname').innerHTML=lname;
+
+    var email=document.getElementById('email').value;
+    document.getElementById('td-email').innerHTML=email;
+
+    var pass=document.getElementById('pass').value;
+    document.getElementById('td-pass').innerHTML=pass;
+
+    var contry=document.getElementById('country');
+    var opt = contry.options[contry.selectedIndex];     //selected index property
+    // var country=document.getElementById('country').value;
+    document.getElementById('td-country').innerHTML=opt.text;
+
+    var code=document.getElementById('code').options[opt.value].text;
+    var phone=document.getElementById('phone').value;
+    document.getElementById('td-phone').innerHTML=code +" "+phone;
+
+    //get radio btn elements by name
+    var gender=document.getElementsByName('gender');
+    for(let g of gender){
+        if(g.checked){
+            document.getElementById('td-gender').innerHTML = g.value;
+        }
+    }
+
+    var dob=document.getElementById('date').value;
+    document.getElementById('td-dob').innerHTML=dob;
+
+    //subjects list
+    var subjects=document.getElementsByName('subject');
+    let str='';
+    for(let s of subjects){
+        if(s.checked){
+            str += s.id + ", ";
+        }
+    }
+    document.getElementById('td-subjects').innerHTML=str;
+
+    var message=document.getElementById('message').value;
+    document.getElementById('td-message').innerHTML=message;   
+}
+
+
+    </script>
+
+</body>
+
+</html>
